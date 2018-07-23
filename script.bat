@@ -1,5 +1,5 @@
 @echo off
-@echo hello world
-@echo 
-@echo 
+@echo H
+
+
 pause
