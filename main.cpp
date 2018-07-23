@@ -24,13 +24,6 @@ void println(T const & value){
 }
 
 int main() {
-    /*ofstream testfile;
-    testfile.open("test.bat");
-    writeFile(testfile,"REM TEST");
-    writeFile(testfile,"@echo test");
-    writeFile(testfile,"pause");
-    testfile.close();*/
-
     string input = "";
 
     println("Select:");
@@ -49,8 +42,6 @@ int main() {
        println("Type in \"pause\" to make the script wait for the user to press a key");
         bool run = true;
         vector<std::string> linesv;
-        //linesv.push_back("");
-        //linesv.push_back();
         linesv.push_back("@echo off");
         string in = "";
         while(run) {
