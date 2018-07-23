@@ -78,9 +78,7 @@ int main() {
 
                 } else if(in == "exit") {
                     linesv.push_back("exit");
-                } else if(in == ""){
-                    linesv.push_back("");
-                } else {
+                } else if(in != ""){
                     linesv.push_back("@echo " + in);
                 }
             }
