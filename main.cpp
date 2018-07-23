@@ -73,11 +73,13 @@ int main() {
                     }
 
                 } else if(in == "cleart") {
-                    
+
                     linesv.push_back("cls");
 
                 } else if(in == "exit") {
                     linesv.push_back("exit");
+                } else if(in == ""){
+                    linesv.push_back("");
                 } else {
                     linesv.push_back("@echo " + in);
                 }
