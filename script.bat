@@ -1,3 +1,6 @@
-echo off
-@echo Hello world!
+@echo off
+@echo Hi
+pause
+cls
+@echo Cleared?
 pause

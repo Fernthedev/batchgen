@@ -23,6 +23,10 @@ void println(T const & value){
     cout << value << endl; 
 }
 
+string FirstWord(const string& line) {
+    return line.substr(0, line.find(' '));
+}
+
 int main() {
     string input = "";
 
@@ -39,7 +43,7 @@ int main() {
     if(input == "0") {
         
        cout << "Type in lines to add text to script. Type in \"00exit\" to quit \n >";
-       println("Type in \"pause\" to make the script wait for the user to press a key");
+       println("Type in \"00help\" for commands that can be used");
         bool run = true;
         vector<std::string> linesv;
         linesv.push_back("@echo off");
@@ -48,11 +52,34 @@ int main() {
             getline(cin,in);
             if(in == "00exit") {
                 run = false;
-            }else{
-                if(in != "pause") {
-                    linesv.push_back("@echo " + in);
-                } else {
+            }else if(in == "00help") {
+                println("pause - makes the user wait for a key to be pressed");
+                println("exit - makes the script shutdown");
+                println("cleart - Clears the text");
+                println("time {amount of time in seconds} - Makes the user wait for specified time\n NOTE: A timeout value of -1 means to wait indefinitely for a key press.");
+            } else{
+                if(in == "pause") {
                     linesv.push_back(in);
+                    
+                } else
+                if(FirstWord(in) == "time") {
+
+                    string timething = in.substr(in.find(' ') + 1);
+
+                    if(!timething.empty()) {
+                        linesv.push_back("timeout /t " + timething + " /NOBREAK");
+                    }else{
+                        println("YOU FORGOT TO SET THE TIME!");
+                    }
+
+                } else if(in == "cleart") {
+                    
+                    linesv.push_back("cls");
+
+                } else if(in == "exit") {
+                    linesv.push_back("exit");
+                } else {
+                    linesv.push_back("@echo " + in);
                 }
             }
         }
